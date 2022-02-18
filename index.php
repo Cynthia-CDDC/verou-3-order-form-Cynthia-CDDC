@@ -20,12 +20,15 @@ function whatIsHappening() {
     echo '<h2>$_SESSION</h2>';
     var_dump($_SESSION);
 }
-
-// TODO: provide some products (you may overwrite the example)
+whatIsHappening();
+// ok TODO: provide some products (you may overwrite the example)
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Hugo', 'price' => 5],
+    ['name' => 'Martini', 'price' => 7],
+    ['name' => 'Margarita', 'price' => 7],
+    ['name' => 'Manhattan', 'price' => 9],
 ];
-
+//in POST see which items have been selected, need the sum of their price
 $totalValue = 0;
 
 function validate()
@@ -47,10 +50,23 @@ function handleForm()
     }
 }
 
-// TODO: replace this if by an actual check
-$formSubmitted = false;
-if ($formSubmitted) {
-    handleForm();
-}
 
+// TODO: replace this if by an actual check
+// $formSubmitted = false;
+if (!empty($_POST) ) {
+    echo "<pre>";
+    echo "---";
+    var_dump($_POST["products"]);
+    echo "</pre>";
+    
+    $choices = $_POST["products"];
+    foreach ($choices as $index => $valueOfIndex){
+        echo ($products[$index]["price"]);
+       
+    }
+    //how to access variables of foreach on orginal array?
+    //$_POST["products"] keys should be compared to $i of $products. If === return price value. $totalValue = sum of the returned prices
+    
+    // handleForm();
+}
 require 'form-view.php';
