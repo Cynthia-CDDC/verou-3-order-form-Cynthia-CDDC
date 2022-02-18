@@ -54,18 +54,13 @@ function handleForm()
 // TODO: replace this if by an actual check
 // $formSubmitted = false;
 if (!empty($_POST) ) {
-    echo "<pre>";
-    echo "---";
-    var_dump($_POST["products"]);
-    echo "</pre>";
+    
     
     $choices = $_POST["products"];
     foreach ($choices as $index => $valueOfIndex){
         echo ($products[$index]["price"]);
-       
+       $totalValue += $products[$index]["price"];
     }
-    //how to access variables of foreach on orginal array?
-    //$_POST["products"] keys should be compared to $i of $products. If === return price value. $totalValue = sum of the returned prices
     
     // handleForm();
 }
